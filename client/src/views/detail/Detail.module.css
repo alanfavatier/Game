@@ -1,0 +1,17 @@
+.detailContainer {
+    margin-top: 360px;
+    width: 100%;
+    padding: 10px;
+}
+
+.detailItem {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  .detailContainer {
+    margin-top: 360px;
+    width: 100%;
+    padding: 10px;
+  }
+}

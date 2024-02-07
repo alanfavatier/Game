@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(
+        to left,
+        rgba(7,27,82,1)0%,
+        rgba(0, 128, 128, 1 ) 100%
+    );
+    text-align: center;
+  }
+
+  .title{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 36px; /* Cambiar el tamaño del título */
+    color: aqua;
+    font-family: "Bigelow Rules";
+}
+.home{
+  margin-top: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px; /* Ajusta el ancho según sea necesario */
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Cambia el color de fondo según sea necesario */
+  color: white; /* Cambia el color del texto según sea necesario */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc; /* Cambia el color de fondo del botón deshabilitado según sea necesario */
+  color: #666; /* Cambia el color del texto del botón deshabilitado según sea necesario */
+  cursor: not-allowed;
+}
+
+.pagination span {
+  display: flex;
+  font-weight: bold;
+  margin: 15px;
+  
+} 

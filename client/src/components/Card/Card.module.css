@@ -1,0 +1,40 @@
+.card {
+    width: 300px; /* Ancho fijo para la carta */
+    margin: 10px; /* Margen entre las cartas */
+  }
+  
+  .link {
+    display: flex;
+    flex-direction: column;
+    background-color: #95dada;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    text-decoration: none; /* Quitar la decoración del enlace */
+    color: inherit; /* Heredar el color del texto */
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .link:hover {
+    transform: scale(1.05);
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto; /* Ajustar la altura automáticamente */
+    border-radius: 5px;
+  }
+  
+  .content {
+    flex-grow: 1; /* Permitir que el contenido se expanda verticalmente */
+  }
+  
+  .name,
+  .email,
+  .phone {
+    margin: 5px 0; /* Margen entre los elementos de texto */
+  }

@@ -1,17 +1,100 @@
-.detailContainer {
-    margin-top: 360px;
-    width: 100%;
-    padding: 10px;
-}
-
-.detailItem {
-  margin-bottom: 10px;
-}
-
+/* Estilos para dispositivos móviles */
 @media only screen and (max-width: 700px) {
   .detailContainer {
-    margin-top: 360px;
-    width: 100%;
-    padding: 10px;
+    margin-top: 150px; /* Reducir el espacio superior en dispositivos móviles */
+    width: 40%; /* Ancho del contenedor aún más reducido */
+    padding: 5px; /* Reducir el padding del contenedor */
+    margin-left: auto;
+    margin-right: auto;
   }
+  
+  .image {
+    margin-top: 50px;
+    width: 100%; /* Ajustar la imagen al ancho completo del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 5px; /* Agregar bordes redondeados */
+  }
+  
+  .content {
+    margin-top: 20px; /* Añadir margen superior para separar la imagen del contenido */
+  }
+  
+  .name {
+    margin: 12px; /* Ajustar el margen inferior de los nombres */
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+    font-weight: 300;
+    color: #ffffff;
+  }
+}
+
+/* Estilos para pantallas de escritorio */
+@media only screen and (min-width: 701px) {
+  .detailContainer {
+    margin-top: 163px; /* Espacio superior mayor en pantallas de escritorio */
+    width: 24%; /* Ancho limitado para mantener el contenido centrado */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    /* border: 1px solid #ccc; */ /* Agregar borde para resaltar el contenido */
+    /* border-radius: 5px; */ /* Agregar bordes redondeados */
+  }
+  
+  .image {
+    margin-top: 40px;
+    width: 100%; /* Ajustar la imagen al ancho completo del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 5px; /* Agregar bordes redondeados */
+  }
+  
+  .content {
+    margin-top: 20px; /* Añadir margen superior para separar la imagen del contenido */
+  }
+  
+  .name {
+    margin: 12px; /* Ajustar el margen inferior de los nombres */
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+    font-weight: 300;
+    color: #ffffff;
+
+
+  }
+
+}
+
+
+.ContenedorbotonAgregarCarrito {
+  display: flex;
+  justify-content: center;
+ 
+}
+.botonAgregarCarrito {
+  background-color: rgb(0, 0, 0);
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: x-small;
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.iconoCarrito {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: x-small;
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  cursor: pointer;
+  transform: scale(1.05);
+  
 }

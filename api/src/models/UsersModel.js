@@ -1,34 +1,34 @@
-const{DataTypes}= require("sequelize")
+const { DataTypes } = require("sequelize");
 
-module.exports = (sequelize)=> {sequelize.define
-    ("User",
- {
-    id:{
-        type:DataTypes.UUID ,//tipo de dato id unico 
-        primaryKey: true,
-        defaultValue:DataTypes.UUIDV4///genera un id unico 
+module.exports = (sequelize) => {
+  sequelize.define("User", {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
     },
-    name:{
-        type:DataTypes.STRING,
-        allowNull: false,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        unique: true
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-    phone:{
-        type:DataTypes.INTEGER,
-       
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    image:{
+    token: {
+      type: DataTypes.STRING,
+      allowNull: true, // El token puede ser nulo al principio y se establecerá después del inicio de sesión
+    },
+    email: {
         type: DataTypes.STRING,
-        allowNull:false
-
-    },
-    created: {
-        type: DataTypes.BOOLEAN,
-        defaultValue:true,
-    },
-
-},{timestamps:false} )}
+        allowNull: true,
+        unique: true,
+      },
+  });
+};

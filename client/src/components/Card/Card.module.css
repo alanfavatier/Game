@@ -1,40 +1,83 @@
 .card {
-    width: 300px; /* Ancho fijo para la carta */
-    margin: 10px; /* Margen entre las cartas */
-  }
+  width: 270px; /* Ancho fijo para la carta */
+  height: 100%; /* Ajustar la altura */
+  margin: 10px; /* Margen entre las cartas */
+  display: flex;
+  flex-direction: column;
+}
+
+.Conteiner {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permitir que las tarjetas crezcan verticalmente */
+  background-color: #ffffff;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 25px;
+  cursor: default;
+  text-decoration: none; /* Quitar la decoración del enlace */
+  color: inherit; /* Heredar el color del texto */
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.Conteiner:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  max-width: 100%;
+  height: auto; /* Ajustar la altura automáticamente */
+  border-radius: 5px;
+}
+
+.content {
+  flex-grow: 1; /* Permitir que el contenido se expanda verticalmente */
+}
+
+.name,
+.phone {
+  margin: 5px 0; /* Margen entre los elementos de texto */
+  font-size: x-small;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.ContenedorbotonAgregarCarrito {
+  display: flex;
+  justify-content: center;
+}
+.botonAgregarCarrito {
+  background-color: rgb(0, 0, 0);
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: x-small;
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.iconoCarrito {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: x-small;
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  cursor: pointer;
+  transform: scale(1.05);
   
-  .link {
-    display: flex;
-    flex-direction: column;
-    background-color: #95dada;
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 25px;
-    cursor: pointer;
-    text-decoration: none; /* Quitar la decoración del enlace */
-    color: inherit; /* Heredar el color del texto */
-    -moz-osx-font-smoothing: grayscale;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out;
-  }
-  
-  .link:hover {
-    transform: scale(1.05);
-  }
-  
-  .image {
-    max-width: 100%;
-    height: auto; /* Ajustar la altura automáticamente */
-    border-radius: 5px;
-  }
-  
-  .content {
-    flex-grow: 1; /* Permitir que el contenido se expanda verticalmente */
-  }
-  
-  .name,
-  .email,
-  .phone {
-    margin: 5px 0; /* Margen entre los elementos de texto */
-  }
+}
+
+.link{
+  cursor: pointer;
+}

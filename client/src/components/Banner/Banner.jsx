@@ -4,10 +4,8 @@ import styles from "./Banner.module.css";
 const Banner = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    "goku.jpg",
-    "spider.png",
-    "thorfin.jpg",
-    "joker.jpg"
+    "baner.png",
+
   ];
 
   useEffect(() => {

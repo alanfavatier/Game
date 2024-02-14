@@ -1,0 +1,19 @@
+/* About.module.css */
+
+.aboutContainer {
+    margin-top: 200px;
+    text-align: center;
+    color: white;
+
+  }
+  
+  .mapImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .instagramIcon {
+    width: 30px;
+    height: 30px;
+  }

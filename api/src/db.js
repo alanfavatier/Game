@@ -5,7 +5,11 @@ const {Sequelize}= require("sequelize")
 require("dotenv").config()
 
 const UsersModel= require("./models/UsersModel")
-const PostsModel= require("./models/PostsModel")
+const CelularesModel= require("./models/CelularesModel")
+const TelevisoresModel= require("./models/TelevisoresModel")
+const MueblesModel= require("./models/MueblesModel")
+const OrdenModel= require("./models/OrdenModel")
+const ProductoCarritoModel= require("./models/ProductoCarritoModel")
 
 const {DB_USER,DB_PASSWORD,DB_HOST,DB_NAME} =process.env
 
@@ -14,16 +18,24 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 
 //DEFINICION DE MODELOS A USAR
 UsersModel(sequelize)
-PostsModel(sequelize)
+CelularesModel(sequelize)
+TelevisoresModel(sequelize)
+MueblesModel(sequelize)
+OrdenModel(sequelize)
+ProductoCarritoModel(sequelize)
+
 
 //crear las relaciones
 
-const {User, Post}= sequelize.models;
+const {User, Celulares, Muebles, Orden, ProductoCarrito, Televisores}= sequelize.models;
+Televisores.belongsToMany(Orden, { through: ProductoCarrito });
+Celulares.belongsToMany(Orden, { through: ProductoCarrito });
+Muebles.belongsToMany(Orden, { through: ProductoCarrito });
+User.hasMany(Orden);
+Orden.belongsTo(User);
+
 
 //aca puedo tener muchas relaciones , sin limitaciones .
-
-User.hasMany(Post)//un usuario puede tener muchos post.
-Post.belongsTo(User)//un post pertnece a un solo  usuario.
 
 module.exports={
     ...sequelize.models,

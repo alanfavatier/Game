@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+  }
+  
+.category {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    position: relative;
+    width: 200px; /* Establece un ancho fijo para todos los contenedores */
+    height: 50px; /* Establece una altura fija para todos los contenedores */
+    padding-top: 20px; /* Ajusta el relleno según sea necesario */
+    /* background-image: url('../../../public/juegos.png'); */
+    background-size: cover;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    margin: 15px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: small;
+   
+    
+  }
+  
+  .category:hover {
+    transform: scale(1.1); /* Cambia la escala al 110% del tamaño original */
+    background-color: rgb(255, 255, 255);
+    color:  #000000;
+
+  }

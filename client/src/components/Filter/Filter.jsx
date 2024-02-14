@@ -134,7 +134,55 @@ const Filter = () => {
     <div className={styles.container}>
       <div>
         <button className={styles.button} onClick={toggleCategoriaOptions}>
-          Categoria
+          Informatica
+        </button>
+        {showCategoriaOptions && (
+          <div className={styles.options}>
+            <p>Opción 1</p>
+            <p>Opción 2</p>
+            <p>Opción 3</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <button className={styles.button} onClick={toggleCategoriaOptions}>
+          Componentes PC
+        </button>
+        {showCategoriaOptions && (
+          <div className={styles.options}>
+            <p>Opción 1</p>
+            <p>Opción 2</p>
+            <p>Opción 3</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <button className={styles.button} onClick={toggleCategoriaOptions}>
+          Gaming
+        </button>
+        {showCategoriaOptions && (
+          <div className={styles.options}>
+            <p>Opción 1</p>
+            <p>Opción 2</p>
+            <p>Opción 3</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <button className={styles.button} onClick={toggleCategoriaOptions}>
+          Smart TV
+        </button>
+        {showCategoriaOptions && (
+          <div className={styles.options}>
+            <p>Opción 1</p>
+            <p>Opción 2</p>
+            <p>Opción 3</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <button className={styles.button} onClick={toggleCategoriaOptions}>
+          Celulares
         </button>
         {showCategoriaOptions && (
           <div className={styles.options}>
@@ -146,7 +194,7 @@ const Filter = () => {
       </div>
       <div>
         <button className={styles.button} onClick={toggleClasificacionOptions}>
-          Clasificacion
+          Audio
         </button>
         {showClasificacionOptions && (
           <div className={styles.options}>
@@ -158,7 +206,7 @@ const Filter = () => {
       </div>
       <div>
         <button className={styles.button} onClick={togglePrecioOptions}>
-          Precio
+          Marcas
         </button>
         {showPrecioOptions && (
           <div className={styles.options}>

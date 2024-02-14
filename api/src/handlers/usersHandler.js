@@ -7,7 +7,8 @@
 //nunca interactua con fuentes externas (api ,bdd)
 
 const { createUserDB, getUserById, getAllUsers, getUserByName } = require("../controllers/usersControllers")
-
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 //query => 
 const getUsersHandler= async (req, res)=>{
     const {name ,race} =req.query
@@ -20,9 +21,6 @@ const getUsersHandler= async (req, res)=>{
 
            res.status(200).json(response)
        }
-
-
-
     } catch (error) {
         res.status(400).json({error: error.message})
     }
@@ -45,19 +43,29 @@ const getDetailHandler= async (req, res)=>{
 }
 // body => info
 //este handler va a invocar a mi controlador de creacion con los datos que recibo de body
-const createUserHandler= async (req, res)=>{
-    const {name, email, phone,image}= req.body;
-
+async function createUserHandler(req, res) {
+    const { name, username, password, email } = req.body;
+  
     try {
-        const response= await createUserDB(name, email,phone,image)
-        res.status(200).json(response)
-    } catch (error) {       
-        res.status(400).json({error: error.message})
+      const user = await createUserDB(name, username, password, email);
+      const token = generateAuthToken(user.id); // Generar token de autenticación
+      res.status(201).json({ user, token }); // Devolver usuario y token al cliente
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
-}
-
+  }
+  
+  function generateAuthToken(userId) {
+    const payload = {
+      userId: userId,
+    };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+    return token;
+  }
+  
 module.exports= {
     getDetailHandler,
     getUsersHandler,
     createUserHandler,
+    
 }

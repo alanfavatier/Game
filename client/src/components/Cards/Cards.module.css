@@ -1,7 +1,94 @@
-.cardList{
-    width: 85vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cambiar el tamaño automático */
-    grid-gap: 20px;
+.cardList {
+  width: 85vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Cambiar el tamaño automático */
+  grid-gap: 30px;
+}
+/* ESTO ESTILOS SON PARA EL CARRUSEL */
+/* Estilos para el contenedor del carrusel */
+.sliderContainer {
+  width: 80%; /* Ancho del contenedor del carrusel */
+  margin: 0 auto; /* Centrar el carrusel horizontalmente */
+}
+
+/* Estilo para las tarjetas dentro del carrusel */
+.sliderCard {
+  padding: 20px; /* Espaciado interno de las tarjetas */
+}
+
+/* Estilo para los puntos de navegación */
+.slick-dots li button:before {
+  color: #000; /* Color de los puntos */
+}
+
+/* Estilo para las flechas de navegación */
+.slick-prev,
+.slick-next {
+  font-size: 24px; /* Tamaño de las flechas */
+  color: #000; /* Color de las flechas */
+}
+
+.slick-prev,
+.slick-next {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Color de fondo de las flechas */
+  border-radius: 50%; /* Estilo de borde de las flechas */
+  padding: 10px; /* Espaciado interno de las flechas */
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Cambia el color de fondo al pasar el mouse sobre las flechas */
+}
+
+/* Estilos adicionales para el carrusel */
+.slick-slider {
+  position: relative; /* Asegura que el carrusel se posicione correctamente */
+}
+
+.slick-prev {
+  left: -50px; /* Ajusta la posición de la flecha izquierda */
+  z-index: 1; /* Asegura que la flecha esté por encima de las tarjetas */
+}
+
+.slick-next {
+  right: -50px; /* Ajusta la posición de la flecha derecha */
+  z-index: 1; /* Asegura que la flecha esté por encima de las tarjetas */
+}
+
+.slick-dots {
+  bottom: 10px; /* Ajusta la posición de los puntos de navegación */
+}
+
+.slick-dots li {
+  margin: 0 5px; /* Espacio entre los puntos de navegación */
+}
+
+.slick-dots li button:before {
+  font-size: 12px; /* Tamaño de los puntos de navegación */
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+  .sliderContainer {
+    width: 100%; /* Ancho completo en dispositivos móviles */
+  }
+
+  .slick-prev,
+  .slick-next {
+    font-size: 18px; /* Tamaño de las flechas en dispositivos móviles */
+  }
 }

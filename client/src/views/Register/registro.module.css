@@ -1,0 +1,94 @@
+/* Estilos base */
+.formContainer {
+  
+  max-width: 400px;
+  margin: 190px auto;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.labelInp {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.inputField {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.submitButton,
+.loginButton,
+.registerButton,
+.botonSesion {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: rgb(246, 102, 102);
+}
+.submitButton:hover,
+.loginButton:hover,
+.registerButton:hover,
+.botonSesion:hover {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: rgb(36, 2, 9);
+}
+
+.text {
+  font-size: small;
+  margin-top: 20px;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  /* Para pantallas más pequeñas, como tablets */
+  .formContainer {
+    width: 100%;
+    border-radius: 15px; /* Quitar el borde redondeado en dispositivos móviles */
+    margin: 200px auto; /* Ajuste adicional del margen superior */
+    padding: 15px; /* Ajuste adicional del espacio interno */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Para pantallas pequeñas, como dispositivos móviles */
+  .formContainer {
+    width: 100%;
+    border-radius: 15px; /* Quitar el borde redondeado en dispositivos móviles */
+    margin: 182px auto; /* Ajuste adicional del margen superior */
+    padding: 15px; /* Ajuste adicional del espacio interno */
+  }
+
+  .inputField {
+    font-size: small; /* Reducir el tamaño del texto en campos de entrada */
+  }
+
+  .submitButton,
+  .loginButton,
+  .registerButton,
+  .botonSesion {
+    margin-top: 15px; /* Espacio entre los botones en dispositivos móviles */
+  }
+}
+
+.formContainer {
+  width: 100%;
+  border-radius: 15px; /* Quitar el borde redondeado en dispositivos móviles */
+  margin:230px auto; /* Ajuste adicional del margen superior */
+  padding: 15px; /* Ajuste adicional del espacio interno */
+}

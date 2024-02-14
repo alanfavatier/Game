@@ -10,7 +10,7 @@ const usersRouter= Router()
 
 usersRouter.get("/", getUsersHandler)
 usersRouter.get("/:id",getDetailHandler )
-usersRouter.post("/", createUserHandler)
+usersRouter.post("/create", createUserHandler)
 
 
 

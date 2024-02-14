@@ -1,234 +1,310 @@
-/* import React, { useState } from "react";
 
-const Create = () => {
 
-  const [input, setInput]= useState({
-    email:"",
-    name:"",
-    phone:""
-  })
-  const [error, setError]= useState({
-    email:"",
-    name:"",
-    phone:""
-  })
 
-const validate=(input)=>{
-  if (){
 
-    console.log("Error en el email");
-  }
-  console.log("Tdo OK");
-}
 
-  function handleChange(e){
-    
-    setInput({...input, [e.target.name]:e.target.value}) //con esto hago que el input se setee con los valores que escribo , pero como tengo varios inputs le pongo ...input para que no se pisen los valores anteriores,
-    
-    validate({
-      ...input,
-      [e.target.name]:e.target.value //esto lo hago para que al mismo tiempo que estoy escribiendo tambien estoy validando
-    })
-   
-  }
-  return (
-    <div>
-      <form action="" onSubmit={""}>
-        <div>
-          <label htmlFor="">Nombre
-            <input type="text" name="name" value={input.value} onChange={handleChange}/>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="">Email
-            <input type="text" name="email" value={input.value} onChange={handleChange}/>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="">Telefono
-            <input type="text" name="phone" value={input.value} onChange={handleChange}/>
-          </label>
-        </div>
-      </form>
-    </div>
-  );
-};
+// import React, { useState, useRef } from "react";
+// import axios from "axios";
+// import styles from "./Create.module.css";
+// /* import { useAppSelector } from "@/redux/hooks";
+// import { useGetUserByIdQuery } from "@/redux/services/usersApi" */
 
-export default Create; */
 
+// const PerfilUsuario = () => {
+
+//   const [imageSelect, setImageSelect] = useState(null);
+
+// /*   const localStorageToken = localStorage.getItem("token"); */
+// /*   const userD = useAppSelector((state) => state.loginReducer.user); */
+
+// /* 
+//   const id = userD?._id;
+
+
+//  */
+// /*   const { data: dataUser } = useGetUserByIdQuery(id);
+//   let image = dataUser?.image
+//   console.log("supuesta imagen", image); */
+
+//   const [userData, setUserData] = useState({
+//     avatar:"",
+//     type:"", // Agrega el campo avatar con la URL por defecto
+//   });
+
+//   const [showImageUpload, setShowImageUpload] = useState(false);
+
+
+//   const [editable, setEditable] = useState(false);
+//   const firstInputRef = useRef(null);
+
+//   const handleEdit = () => {
+//     setShowImageUpload(true);
+//     setEditable(true);
+//     setTimeout(() => {
+//       if (firstInputRef.current) {
+//         firstInputRef.current.focus();
+
+//       }
+//     }, 0); // El retraso de 0 ms ayuda a que se ejecute en el próximo ciclo de eventos
+//   };
+
+//   const handleSave = async (id) => {
+//     try {
+//       setEditable(false);
+     
+//       const formData = new FormData();
+//       imageSelect && formData.append("photoData", imageSelect);
+//       imageSelect.name && formData.append("name", imageSelect.name);
+
+//       const respuesta = await axios.post(
+//        `http://localhost:3001/products/create`,
+//         formData,
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//           },
+//         }
+//       );
+//       console.log("respuesta", respuesta);
+//       console.log("form Data", formData);
+
+//       const imagen = `http://localhost:3001/products/create${respuesta.data.id}`;
+//       console.log("imagen id", imagen);
+//       setUserData({
+//         ...userData,
+//         avatar: imagen
+//       })
+//       if (imagen) {
+//         const response = await axios.post(`http://localhost:3001/products/create`, {
+//           image: imagen
+//         }, {
+//           headers: {
+//             'Content-Type': 'application/json',
+//           }
+//         });
+
+//       }
+      
+//       console.log("esta es la data delusuario ", userData);
+
+//       alert('Cambios guardados correctamente');
+
+
+      
+//     } catch (error) {
+//       console.error('Error en la solicitud:', error);
+//       if (error.response) {
+//         console.error('Respuesta del servidor:', error.response.data);
+//       }
+//     }
+//   };
+ 
+//   const handleChange = (e) => {
+//     const { id, value } = e.target;
+//     setUserData((prevUserData) => ({
+//       ...prevUserData,
+//       [id]: value,
+//     }));
+//   } ;
+
+//   const handleImageChange = (e) => {
+//     const file = e.target.files[0];
+//    /*  const reader = new FileReader();
+//     const imageUrl = URL.createObjectURL(file); */
+//     console.log("fiele", file);
+//     if (file !== null) {
+//       const imageUrl = URL.createObjectURL(file);
+//       console.log("ten", imageUrl);
+//       setUserData({
+//         ...userData,
+//         avatar: imageUrl
+//       })
+//       setImageSelect(file)
+
+//     }
+
+//   };
+
+
+
+
+//   return (
+//     <div className={styles.formContainer}>
+//       <div id="user-form">
+//         <div >
+//           <img
+//             src={userData?.avatar}
+//             alt="Avatar"
+           
+//             onClick={handleEdit}
+//           /> {showImageUpload && (
+//             <div>
+//               <input type="file" accept="image/*" onChange={handleImageChange} />
+//               <button onClick={() => setShowImageUpload(false)}>Cancelar</button>
+//             </div>
+//           )}
+//         </div>
+//         <div >
+//           <label >
+//            Type:
+//           </label>
+//           <input
+            
+//             type="text"
+//             id="type"
+//             value={userData.type}
+//             onChange={handleChange}
+//             disabled={!editable}
+//             placeholder="type"
+//           />
+//         </div>
+
+//         <p className="text-gray-600 text-sm mb-2">
+//           ¿Necesitas actualizar tu información? Haz clic en <strong>"Editar"</strong> para empezar.
+//         </p>
+
+//         <div className="flex justify-center items-center">
+
+//           <button
+//             className="mr-6 bg-red-600 text-white rounded px-2 py-1 hover:bg-red-800 focus:outline-none cursor-pointer w-20 "
+//             onClick={handleEdit}
+//             disabled={editable}
+//           >
+//             Editar
+//           </button>
+//           <button
+//             className="bg-teal-500 text-white rounded px-2 py-1 hover:bg-teal-800 focus:outline-none cursor-pointer w-20"
+//             onClick={() => handleSave()} disabled={!editable}>
+//             Guardar
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+// export default PerfilUsuario;
+
+
+/* 
+import React, { useState, useRef } from "react";
 import axios from "axios";
-import React, { useState } from "react";
-import validator from "./Validator";
-import styles from "./Create.module.css"; // Importa los estilos CSS Modules
-import { Link } from "react-router-dom";
+import styles from "./Create.module.css";
 
-const Create = () => {
-  const [errors, setErrors] = useState({});
-  const [dogData, setDogData] = useState({
-    email: "",
-    name: "",
-    phone: "",
-    image: null,
+const CrearProducto = () => {
+  const [imageSelect, setImageSelect] = useState(null);
+  const [userData, setUserData] = useState({
+    avatar: null,
+    type: ""
   });
+  const [showImageUpload, setShowImageUpload] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const firstInputRef = useRef(null);
 
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const handleEdit = () => {
+    setShowImageUpload(true);
+    setEditable(true);
+    setTimeout(() => {
+      if (firstInputRef.current) {
+        firstInputRef.current.focus();
+      }
+    }, 0);
+  };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0]; // Selecciona el primer archivo del input
-    setDogData((prevData) => ({
-      ...prevData,
-      image: file, // Almacena el archivo en el estado
-    }));
-    // No se validará la imagen en este momento, pero podrías agregar validaciones si lo deseas
+  const handleSave = async () => {
+    try {
+      setEditable(false);
+      const formData = new FormData();
+      imageSelect && formData.append("image", imageSelect);
+      formData.append("type", userData.type);
+
+      const response = await axios.post(
+        "http://localhost:3001/products/create",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }
+      );
+
+      alert("Producto creado correctamente");
+
+      setUserData({
+        avatar: null,
+        type: ""
+      });
+
+      window.location.reload();
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      if (error.response) {
+        console.error("Respuesta del servidor:", error.response.data);
+      }
+    }
   };
 
   const handleChange = (e) => {
-    const newDogData = { ...dogData, [e.target.name]: e.target.value };
-    setDogData(newDogData);
-
-    // Validar el formulario después de cada cambio
-    const validationErrors = validator(newDogData);
-    setErrors(validationErrors);
+    const { id, value } = e.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [id]: value
+    }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Verificar si todos los campos están vacíos
-    if (
-      Object.values(dogData).every((value) => value === "") ||
-      Object.values(dogData).every((value) => value === null)
-    ) {
-      alert("Faltan datos. Todos los campos son obligatorios.");
-      return;
-    }
-    // Validar el formulario antes de enviar
-    const validationErrors = validator(dogData);
-    setErrors(validationErrors);
-
-    if (Object.keys(errors).length === 0) {
-      //Object.keys(errors): Devuelve un array con las claves del objeto errors
-
-      // Crear un FormData para enviar la imagen
-      const formData = new FormData();
-      formData.append("image", dogData.image);
-
-      // Agregar el resto de los datos del perro al FormData
-      Object.entries(dogData).forEach(([key, value]) => {
-        if (key !== "image") {
-          formData.append(key, value);
-        }
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageSelect(file);
+      setUserData({
+        ...userData,
+        avatar: URL.createObjectURL(file)
       });
-
-      try {
-        const response = await axios.post(
-          `http://localhost:3001/users/`,
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data", // Especifica el tipo de contenido como FormData
-            },
-          }
-        );
-        console.log("Respuesta de la base de datos:", response.data);
-        setSuccessMessage(alert("perro creado exitosamente"));
-        window.location.href = "/home";
-        setErrorMessage(null);
-      } catch (error) {
-        console.error("Error al enviar datos a la base de datos:", error);
-      }
-    } else {
-      console.log("Formulario con errores");
-      setErrorMessage(null);
     }
-  };
-
-  const handleCardClick = () => {
-    window.location.href = `/home`;
   };
 
   return (
-    <div className={styles.formContainer}>
-      <Link to={`/home`} onClick={handleCardClick}>
-        <button className={styles.btnvolver}>
-          Volver a la Pagina de Inicio
-        </button>
-      </Link>
-      <form onSubmit={handleSubmit}>
-        {successMessage && (
-          <p className={styles.successMessage}>{successMessage}</p>
-        )}
-        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-
-        <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor="name">
-            Nombre
-          </label>
+    <div >
+      <div id="product-form">
+        <div>
+          <img
+            src={userData?.avatar}
+            alt="Avatar"
+            onClick={handleEdit}
+          />
+          {showImageUpload && (
+            <div>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              <button onClick={() => setShowImageUpload(false)}>Cancelar</button>
+            </div>
+          )}
+        </div>
+        <h1>Mis datos</h1>
+        <div>
+          <label htmlFor="type">Type:</label>
           <input
-            className={styles.input}
-            name="name"
+            ref={firstInputRef}
+            autoFocus={editable}
             type="text"
-            placeholder="Nombre..."
-            value={dogData.name}
+            id="type"
+            value={userData.type}
             onChange={handleChange}
+            disabled={!editable}
+            placeholder="Type"
           />
-          {errors.name && <p className={styles.error}>{errors.name}</p>}
         </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor="email">
-            email
-          </label>
-          <input
-            className={styles.input}
-            name="email"
-            type="text"
-            placeholder="email..."
-            value={dogData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p className={styles.error}>{errors.email}</p>}
+        <p>¿Necesitas actualizar tu información? Haz clic en <strong>"Editar"</strong> para empezar.</p>
+        <div>
+          <button onClick={handleEdit} disabled={editable}>Editar</button>
+          <button onClick={handleSave} disabled={!editable}>Guardar</button>
         </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor="phone">
-            phone
-          </label>
-          <input
-            className={styles.input}
-            name="phone"
-            type="number"
-            placeholder="phone..."
-            value={dogData.phone}
-            onChange={handleChange}
-          />
-          {errors.phone && <p className={styles.error}>{errors.phone}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor="image">
-            Imagen
-          </label>
-          <input
-            className={styles.input}
-            name="image"
-            value={dogData.image}
-            type="file" // Cambiado a type="file"
-            accept=".jpg, .jpeg, .png" // Especifica los tipos de archivos aceptados
-            onChange={handleImageChange}
-          />
-          {errors.image && <p className={styles.error}>{errors.image}</p>}
-        </div>
-
-        {errors.name ? null : (
-          <button type="submit" className={styles.btncrearraza}>
-            Crear Raza
-          </button>
-        )}
-      </form>
+      </div>
     </div>
   );
 };
 
-export default Create;
+export default CrearProducto;
+ */

@@ -13,10 +13,11 @@ const Detail = () => {
 
   const [hovered, setHovered] = useState(false); // Estado para controlar si el cursor está sobre el botón
   const { id } = useParams(); // Obtenemos el ID del usuario de los parámetros de la ruta
-  const user = useSelector((state) => state.userId); // con useSelector me traigo el estado global que defini en el reducer que es userId. este va a contener al usuario segun su id
+  console.log(id);
+  const product = useSelector((state) => state.productId); // con useSelector me traigo el estado global que defini en el reducer que es productId. este va a contener al usuario segun su id
   const dispatch = useDispatch();
   const handleAddToCart = () => {
-    dispatch(addToCart(user));
+    dispatch(addToCart(product));
   };
 
  
@@ -28,9 +29,9 @@ const Detail = () => {
     <>
       <div className={styles.detailContainer}>
         <div className={styles.content}>
-        <img src={user.image} alt={user.name} className={styles.image} />
-          <p className={styles.name}>{user.name}</p>
-          <p className={styles.name}>Precio: {user.precio}</p>
+        <img src={product.image} alt={product.name} className={styles.image} />
+          <p className={styles.name}>{product.name}</p>
+          <p className={styles.name}>Precio: {product.precio}</p>
         </div>
         <div
           className={styles.ContenedorbotonAgregarCarrito}
@@ -51,7 +52,7 @@ const Detail = () => {
         
       </div>
       <div>
-      <p className={styles.name}>Descripcion: {user.descripcion}</p>
+      <p className={styles.name}>Descripcion: {product.descripcion}</p>
       </div>
       <Footer />
     </>

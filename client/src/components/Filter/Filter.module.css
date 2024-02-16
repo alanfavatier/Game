@@ -21,6 +21,9 @@
     color: rgb(0, 0, 0);
     border: 1px solid black;
   }
+  .button:active {
+    transform: translateY(2px); /* Hace que el botón se desplace ligeramente hacia abajo cuando se hace clic */
+  }
   
   .options {
     display: flex;

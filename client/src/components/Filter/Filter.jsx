@@ -102,7 +102,7 @@
 
 // export default DogFilters;
 
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import styles from "./Filter.module.css";
 
 const Filter = () => {
@@ -216,6 +216,34 @@ const Filter = () => {
           </div>
         )}
       </div>
+    </div>
+  );
+};
+
+export default Filter; */
+
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getProductsByCategory, getProducts } from '../../redux/actions'; // Importa la acción para obtener todos los productos
+import styles from "./Filter.module.css"; 
+
+const Filter = () => {
+  const dispatch = useDispatch();
+
+  const handleFilter = (category) => {
+    dispatch(getProductsByCategory(category)); // Envia una solicitud para obtener los productos de la categoría seleccionada
+  };
+
+  const handleClearFilters = () => {
+    dispatch(getProducts()); // Envia una solicitud para obtener todos los productos nuevamente
+  };
+
+  return (
+    <div className={styles.container}>
+      <button className={styles.button} onClick={() => handleFilter('muebles')}>Muebles</button>
+      <button className={styles.button} onClick={() => handleFilter('celulares')}>Celulares</button>
+      <button className={styles.button} onClick={() => handleFilter('televisores')}>Televisores</button>
+      <button className={styles.button} onClick={handleClearFilters}>Borrar Filtros</button> {/* Nuevo botón para borrar filtros */}
     </div>
   );
 };

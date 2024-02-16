@@ -5,6 +5,7 @@ export const GET_BY_NAME = "GET_BY_NAME"
 export const GET_BY_ID = "GET_BY_ID"
 export const SET_PAGE = "SET_PAGE"
 export const ADD_TO_CART = "ADD_TO_CART";
+export const GET_PRODUCTS_BY_CATEGORY = "GET_PRODUCTS_BY_CATEGORY";
 
 export function getProducts(){
     return async function(dispatch){
@@ -51,3 +52,18 @@ export function addToCart(product) {
     payload: product,
   };
 }
+
+export function getProductsByCategory(category) {
+    return async function(dispatch) {
+      try {
+        const response = await axios.get(`http://localhost:3001/category?category=${category}`);
+        dispatch({
+          type: GET_PRODUCTS_BY_CATEGORY,
+          payload: response.data
+        });
+      } catch (error) {
+        console.error('Error fetching products by category:', error);
+        // Puedes manejar el error según tus necesidades, como mostrando un mensaje al usuario
+      }
+    };
+  }

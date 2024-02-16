@@ -6,8 +6,9 @@ const productRouter = require('./productRouter');
 const cartRouter = require('./cartRouter');
 const ordersRouter = require('./ordersRouter');
 const authController = require('../controllers/authController');
+const { getProductsByCategory } = require('../controllers/productsContollers');
 
-
+router.get('/category', getProductsByCategory);
 router.post('/login', authController.loginUser);
 router.use('/users', usersRouter); 
 router.use("/products", productRouter);

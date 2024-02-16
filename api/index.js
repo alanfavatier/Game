@@ -6,6 +6,6 @@ const {conn}= require("./src/db")
 const PORT= 3001
 
 server.listen(PORT, ()=>{
-    conn.sync({force:false});//sync permite que se conecten el server con la bdd.
+    conn.sync({force:true});//sync permite que se conecten el server con la bdd.
     console.log(`escuhando en puerto ${PORT}`);
 });

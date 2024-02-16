@@ -7,6 +7,7 @@ import {
   GET_BY_ID,
   SET_PAGE,
   ADD_TO_CART,
+  GET_PRODUCTS_BY_CATEGORY
 } from "../actions";
 
 let initialState = {
@@ -48,6 +49,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         cart: [...state.cart, action.payload], // Agregar el producto al carrito
+      };
+      case GET_PRODUCTS_BY_CATEGORY:
+      return {
+        ...state,
+        allProducts: action.payload // Actualiza el estado con los productos de la categoría seleccionada
       };
 
     default:

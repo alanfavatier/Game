@@ -7,7 +7,8 @@ import {
   GET_BY_ID,
   SET_PAGE,
   ADD_TO_CART,
-  GET_PRODUCTS_BY_CATEGORY
+  GET_PRODUCTS_BY_CATEGORY,
+  ADD_TO_CART_FROM_STORAGE
 } from "../actions";
 
 let initialState = {
@@ -21,6 +22,11 @@ let initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case ADD_TO_CART_FROM_STORAGE:
+    return {
+      ...state,
+      cart: action.payload, // Inicializar el estado del carrito con los datos del localStorage
+    };
     case GET_PRODUCTS: //aca se verifica el tipo de accion que llega
       return {
         ...state,

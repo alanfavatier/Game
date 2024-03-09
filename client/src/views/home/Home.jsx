@@ -8,7 +8,7 @@ import { getProducts, setPage } from "../../redux/actions";
 import Filter from "../../components/Filter/Filter";
 import Banner from "../../components/Banner/Banner";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import MasVendidos from "../../components/MasVendidos/MasVendidos";
+/* import MasVendidos from "../../components/MasVendidos/MasVendidos"; */
 
 const Home = () => {
   const dispatch = useDispatch(); //con esto envio una accion a mi store
@@ -41,9 +41,9 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <h2 className={styles.title}> EmpreMuebles </h2>
-      <Filter />
       <Banner />
-      <MasVendidos/>
+      <Filter />
+      {/* <MasVendidos/> */}
       <Cards allProducts={allProducts} currentProducts={currentProducts} />
 
 

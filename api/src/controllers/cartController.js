@@ -1,20 +1,21 @@
-// En un archivo llamado cartController.js
-const { ProductoCarrito } = require('../db');
+const { ProductoCarrito} = require('../db');
 
-async function addToCart(req, res) {
+
+async function getCartByUser(req, res) {
     try {
-        const { productId, quantity } = req.body;
-        const newItem = await ProductoCarrito.create({ productId, quantity });
-        res.status(201).json(newItem);
+        const userId = req.user.id; // Obteniendo el ID del usuario autenticado desde el middleware de autenticación
+        const cartItems = await ProductoCarrito.findAll({ where: { userId } });
+        res.status(200).json(cartItems);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: 'Internal server error' });
     }
 }
 
 async function removeFromCart(req, res) {
     try {
         const { itemId } = req.params;
-        const item = await ProductoCarrito.findByPk(itemId);
+        const userId = req.user.id; // Obteniendo el ID del usuario autenticado desde el middleware de autenticación
+        const item = await ProductoCarrito.findOne({ where: { id: itemId, userId } });
         if (!item) {
             return res.status(404).json({ error: 'Item not found in cart' });
         }
@@ -26,6 +27,7 @@ async function removeFromCart(req, res) {
 }
 
 module.exports = {
-    addToCart,
+   
+    getCartByUser,
     removeFromCart
 };

@@ -8,8 +8,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Registro from "./views/Register/registro";
 import Carrito from "./components/Carrito/Carrito";
 import SobreNosotros from "./views/about/SobreNosotros";
-
-
+import ProductsByCategory from "./components/ProductsByCategory/ProductsByCategory";
+import axios from "axios";
+axios.defaults.baseURL= "http://localhost:3001"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/registro" component={Registro} />
           <Route path="/carrito" component={Carrito} />
           <Route path="/about" component={SobreNosotros} />
+          <Route path="/shop" component={ProductsByCategory} />
         </Switch>
       </div>
   );

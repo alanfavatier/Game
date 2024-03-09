@@ -6,14 +6,15 @@ import { addToCart } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ user }) => {
-  const { id, name, precio, image } = user;
+const Card = ({ product }) => {
+  const { id, name, precio, image } = product;
   console.log(image);
   const [hovered, setHovered] = useState(false); // Estado para controlar si el cursor está sobre el botón
 
   const dispatch = useDispatch();
   const handleAddToCart = () => {
-    dispatch(addToCart(user));
+    console.log(product);
+    dispatch(addToCart(product));
   };
 
   return (

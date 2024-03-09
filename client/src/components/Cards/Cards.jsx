@@ -2,7 +2,6 @@ import React from "react";
 import Card from "../Card/Card";
 import styles from "./Cards.module.css"
 
-
 const Cards = ({currentProducts}) => { //recibo los usuarios por props
   
 
@@ -10,8 +9,8 @@ const Cards = ({currentProducts}) => { //recibo los usuarios por props
   return (
     <div className={styles.cardList}>
 
-      {currentProducts?.map((user)=>(
-         <Card key={user.id} user = {user}/>
+      {currentProducts?.map((product)=>(
+         <Card key={product.id} product = {product}/>
          )) } {/* primer verifico si existe userList , luego hago un map para mandarle por prop a mi Card cada uno de los usuarios  */}
        
     </div>
